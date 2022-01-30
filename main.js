@@ -5,6 +5,15 @@ const FULL_HEART = '♥'
 // Your JavaScript code goes here!
 const heart = document.querySelector(".like-glyph")
 heart.addEventListener("click",event=>{
+  mimicServerCall().then(()=>{
+    console.log(event)
+    if(FULL_HEART){
+      event.target.innerHTML =FULL_HEART
+    }else{
+      EMPTY_HEART
+    }
+    
+  })
   
   event.preventDefault();
 })
