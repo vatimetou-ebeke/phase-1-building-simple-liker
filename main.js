@@ -7,13 +7,30 @@ const heart = document.querySelector(".like-glyph")
 heart.addEventListener("click",event=>{
   mimicServerCall().then(()=>{
     console.log(event)
-    if(FULL_HEART){
+  
+   if(heart.innerText===EMPTY_HEART){
       event.target.innerHTML =FULL_HEART
-    }else{
-      EMPTY_HEART
-    }
+      event.target.className += " activated-heart"
     
-  })
+   }else{
+     event.target.innerHTML = EMPTY_HEART
+     event.target.className = " "
+
+   }
+   
+  
+    
+  }).catch((error) => {
+   modal= document.getElementById("modal")
+   if(modal.innerText===error){
+     event.target.innerHTML =error
+     event.target.className+= "hidden"
+   }else{
+     event.target.innerHTML = !error
+     event.target.className= " "
+   }
+
+})
   
   event.preventDefault();
 })
