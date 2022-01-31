@@ -21,16 +21,15 @@ heart.addEventListener("click",event=>{
   
     
   }).catch((error) => {
-   modal= document.getElementById("modal")
-   if(modal.innerText===error){
-     event.target.innerHTML =error
-     event.target.className+= "hidden"
-   }else{
-     event.target.innerHTML = !error
-     event.target.className= " "
-   }
-
-})
+   const modal= document.getElementById("modal")
+   modal.className= " "
+  modal.innerHTML= error 
+  setTimeout(() =>modal.className+="hidden",3000)
+  }
+  
+  
+  )
+  
   
   event.preventDefault();
 })
