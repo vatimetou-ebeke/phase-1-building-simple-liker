@@ -3,9 +3,12 @@ const EMPTY_HEART = '♡'
 const FULL_HEART = '♥'
 
 // Your JavaScript code goes here!
-const heart = document.querySelector(".like-glyph")
-heart.addEventListener("click",event=>{
+const hearts = document.querySelectorAll(".like-glyph")
+
+hearts.forEach(heart=>heart.addEventListener("click",event=>{
   mimicServerCall().then(()=>{
+    
+
     console.log(event)
   
    if(heart.innerText===EMPTY_HEART){
@@ -33,7 +36,7 @@ heart.addEventListener("click",event=>{
   
   event.preventDefault();
 })
-
+)
 
 
 
